@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyFlow Agent</title>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>StudyFlow Agent</h1>
+      <p class="subtitle">
+        An intelligent study planning agent that turns your goals into structured task plans.
+      </p>
+    </header>
+
+    <main class="main">
+      <section class="card" id="input-section">
+        <h2>Your Study Goal</h2>
+        <form id="study-form" novalidate>
+          <div class="form-group">
+            <label for="goal">Study goal</label>
+            <input
+              type="text"
+              id="goal"
+              name="goal"
+              placeholder="e.g. Complete the web development assignment"
+              required
+            >
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="deadline">Deadline (days)</label>
+              <input
+                type="number"
+                id="deadline"
+                name="deadline"
+                min="1"
+                max="365"
+                value="7"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="difficulty">Difficulty</label>
+              <select id="difficulty" name="difficulty" required>
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="hours">Hours per day</label>
+              <input
+                type="number"
+                id="hours"
+                name="hours"
+                min="0.5"
+                max="24"
+                step="0.5"
+                value="2"
+                required
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Generate Plan</button>
+        </form>
+      </section>
+
+      <section class="card result-section hidden" id="result-section">
+        <h2>Your Study Plan</h2>
+
+        <div class="plan-summary">
+          <div class="summary-item">
+            <span class="label">Goal</span>
+            <span class="value" id="display-goal">—</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">Priority</span>
+            <span class="value">
+              <span class="priority-badge" id="display-priority">—</span>
+            </span>
+          </div>
+          <div class="summary-item">
+            <span class="label">Deadline</span>
+            <span class="value" id="display-deadline">—</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">Total available study time</span>
+            <span class="value" id="display-time">—</span>
+          </div>
+        </div>
+
+        <div class="recommendation" id="display-recommendation"></div>
+
+        <div class="progress-block">
+          <div class="progress-header">
+            <span>Progress</span>
+            <span id="display-progress">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+
+        <ul class="task-list" id="task-list"></ul>
+
+        <button type="button" class="btn btn-secondary" id="reset-btn">Reset Plan</button>
+      </section>
+
+      <section class="card explanation">
+        <h2>How This Agent Works</h2>
+        <p class="explanation-intro">
+          This prototype demonstrates the core loop of an intelligent software agent
+          using only frontend code, rule-based logic, and browser memory.
+        </p>
+        <div class="agent-loop">
+          <article class="loop-item">
+            <h3>Perception</h3>
+            <p>
+              The agent reads your study goal, deadline, difficulty level, and available
+              hours per day from the form.
+            </p>
+          </article>
+          <article class="loop-item">
+            <h3>Decision-making</h3>
+            <p>
+              Rule-based logic assigns a priority level, breaks the goal into tasks,
+              estimates total study time, and generates a recommendation.
+            </p>
+          </article>
+          <article class="loop-item">
+            <h3>Action</h3>
+            <p>
+              The agent displays your plan, tracks task completion, updates progress,
+              and lets you reset when needed.
+            </p>
+          </article>
+          <article class="loop-item">
+            <h3>Memory</h3>
+            <p>
+              Your plan and progress are saved in <code>localStorage</code> so they
+              persist after you refresh the page.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>StudyFlow Agent — University assignment prototype</p>
+    </footer>
+  </div>
+
+  <script src="src/agent.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
