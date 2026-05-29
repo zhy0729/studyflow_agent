@@ -63,6 +63,8 @@ The `StudyAgent.act()` method shapes the decision into a plan object. The UI (`m
 studyflow_agent/
 ├── index.html          # Main page, form, results, explanation
 ├── README.md           # This file
+├── docs/
+│   └── demo.mp4        # 2-minute demo video
 └── src/
     ├── agent.js        # StudyAgent class (perceive, decide, act, memory)
     ├── main.js         # DOM events and rendering
@@ -71,8 +73,7 @@ studyflow_agent/
 
 ## Demo Video
 
-<!-- Replace with your actual demo video URL -->
-[Demo video link — add your recording URL here]
+[2-minute StudyFlow Agent demo](./docs/demo.mp4)
 
 ## Screenshots
 
