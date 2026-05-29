@@ -75,6 +75,8 @@ studyflow_agent/
 
 [2-minute StudyFlow Agent demo](./docs/demo.mp4)
 
+> The demo video is hosted in the repository at `docs/demo.mp4`. Due to GitHub file size limits, the video may need to be downloaded via "View raw" before playback.
+
 ## Screenshots
 
 <!-- Add screenshots of the form, generated plan, and completed tasks -->
